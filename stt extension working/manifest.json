@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "version": "2.0",
+  "author": "Yuribtr",
+  "default_locale": "en",
+  "web_accessible_resources": [
+  ],
+  "icons": {
+    "19": "icon_19_off.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "__MSG_extTitle__",
+    "default_icon": {
+      "19": "icon_19_off.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "langlist.js",
+        "content.js"
+      ],
+      "css": [
+        "speechAssistant.css"
+      ]
+    }
+  ]
+}

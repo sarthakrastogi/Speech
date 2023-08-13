@@ -1,0 +1,114 @@
+/* Popup container */
+.saInformerPopup {
+    position: relative;
+    display: block !important;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+/* The actual popup (appears on top) */
+.saInformerPopup .saInformerPopupText {
+    visibility: hidden;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+    width: auto;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 10000;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.saInformerPopup .saInformerPopupText::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.saInformerPopup .show {
+    visibility: visible;
+}
+
+.saInformerPopupText span {
+    display: inline-block;
+}
+
+.saInformerPopupText .saInformerPopupConfidence {
+    display: none;
+    padding: 5px 0;
+    border: 1px solid #fff;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+}
+
+.saInformerPopupText .saInformerPopupConfidence.show {
+    visibility: inherit;
+    display: inline-block;
+    background: crimson;
+    border: 1px solid;
+    padding: 6px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.saInformerPopupText.bottom {
+    bottom: auto;
+}
+
+.saInformerPopup .saInformerPopupText.bottom::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    top: -10px;
+    border-color: transparent transparent rgb(85, 85, 85);
+}
+
+.saInformerPopup .saInformerPopupText.bottom::after {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .saInformerPopup .saInformerPopupText {
+        border: 1px solid black;
+    }
+
+    .saInformerPopup .saInformerPopupText:after {
+        border: 1px solid black;
+    }
+}
